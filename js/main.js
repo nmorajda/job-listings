@@ -8,10 +8,11 @@ const initialSettings = {
   offers: data,
 };
 
-const state =
-  JSON.parse(localStorage.getItem(_STORAGE_NAME)) || initialSettings;
+const state = JSON.parse(localStorage.getItem(_STORAGE_NAME)) || {
+  ...initialSettings,
+};
 
-// CRUD filters
+// CRUD FILTERS functions
 const addFilter = filter => {
   if (!state.filters.some(item => item.name === filter.name)) {
     state.filters.push(filter);
